@@ -86,7 +86,7 @@
 - (UIView *)backdropView {
     if (!_backdropView) {
         _backdropView = [[UIView alloc] initWithFrame:self.bounds];
-        _backdropView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+        _backdropView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
         _backdropView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backdropView.alpha = 0;
     
