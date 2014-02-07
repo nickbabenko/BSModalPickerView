@@ -42,6 +42,8 @@
 
         _picker = [self pickerWithFrame:pickerFrame];
         _picker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        
+        [_picker setBackgroundColor:[UIColor whiteColor]];
     }
 
     return _picker;
@@ -86,7 +88,7 @@
 - (UIView *)backdropView {
     if (!_backdropView) {
         _backdropView = [[UIView alloc] initWithFrame:self.bounds];
-        _backdropView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+        _backdropView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
         _backdropView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _backdropView.alpha = 0;
     
@@ -133,6 +135,12 @@
     CGRect rect = self.picker.frame;
     rect.size.width = self.panel.frame.size.width;
     self.picker.frame = rect;
+    
+    UIView *pickerBackground = [[UIView alloc] initWithFrame:rect];
+    
+    [pickerBackground setBackgroundColor:[UIColor whiteColor]];
+    
+    [self.panel addSubview:pickerBackground];
     [self.panel addSubview:self.picker];
     [self.panel addSubview:self.toolbar];
     
